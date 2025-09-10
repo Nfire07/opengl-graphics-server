@@ -1,0 +1,1 @@
+Before running install X server to make sure the code is displayed correctly
