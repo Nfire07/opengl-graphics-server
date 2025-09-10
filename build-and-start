@@ -1,0 +1,36 @@
+#!/bin/bash
+
+IMAGE_REF="opengl-graphics-server:latest"
+CONTAINER_NAME="opengl-graphics-server"
+
+echo ""
+echo "        ============================"
+echo "    Building container image $IMAGE_REF"
+echo "        ============================"
+echo ""
+
+docker build -t "$IMAGE_REF" .
+
+echo ""
+echo "        ============================"
+echo "    Running container image $IMAGE_REF"
+echo "        ============================"
+echo ""
+
+CONTAINER_ID=$(docker ps -a --filter "name=^${CONTAINER_NAME}$" --format "{{.ID}}")
+
+if [ -n "$CONTAINER_ID" ]; then
+    docker rm -f "$CONTAINER_NAME"
+fi
+
+docker run -it --rm --name "$CONTAINER_NAME" -e DISPLAY=host.docker.internal:0.0 "$IMAGE_REF"
+
+echo ""
+echo "        ============================"
+echo "    Stopping container image $IMAGE_REF"
+echo "        ============================"
+echo ""
+echo ""
+echo ""
+
+sleep 2

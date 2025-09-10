@@ -1,0 +1,13 @@
+#!/bin/bash
+
+GREEN="\033[0;32m"
+CYAN="\033[0;36m"
+RESET="\033[0m"    
+
+echo -e "${GREEN}"
+echo "-------------------------------------------------"
+echo "      Docker container started successfully!"
+echo "-------------------------------------------------"
+echo -e "${RESET}"
+
+exec bash
