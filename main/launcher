@@ -1,0 +1,5 @@
+#!/bin/bash
+
+gcc main.c glad.c -Iinclude -lglfw -lGL -ldl -lm -lrt -lX11 -lpthread -lXrandr
+
+./a.out

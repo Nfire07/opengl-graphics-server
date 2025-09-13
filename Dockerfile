@@ -58,7 +58,8 @@ RUN apt update && apt upgrade -y && \
     mesa-utils-extra \
     freeglut3-dev \
     libglu1-mesa-dev \
-    libgl1-mesa-dev 
+    libgl1-mesa-dev \
+    libglfw3-dev 
 
 COPY entrypoint /entrypoint
 

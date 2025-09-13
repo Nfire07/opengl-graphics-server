@@ -15,7 +15,7 @@ echo.
 tasklist /FI "IMAGENAME eq %VCXSERV_EXE%" | find /I "%VCXSERV_EXE%" >nul
 if %errorlevel% neq 0 (
     echo [INFO] X server not active. booting...
-    start "" "%VCXSERV_PATH%\%VCXSERV_EXE%" :0 -multiwindow -ac -nowgl
+    start "" "%VCXSERV_PATH%\%VCXSERV_EXE%" :0 -multiwindow -ac 
     echo [INFO] Wait 3 seconds for VcXsrv to finish booting...
     timeout /t 3 /nobreak >nul
 ) else (
@@ -41,7 +41,7 @@ if %errorlevel% equ 0 (
     docker rm -f %CONTAINER_NAME%
 )
 
-docker run -it --rm --name %CONTAINER_NAME% -e DISPLAY=host.docker.internal:0.0 -v "%cd%\src":/root/src %IMAGE_REF%
+docker run -it --rm --name %CONTAINER_NAME% -e DISPLAY=host.docker.internal:0.0 -v "%cd%\main":/root/main %IMAGE_REF%
 
 pause
 
